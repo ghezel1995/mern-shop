@@ -1,12 +1,6 @@
-.custom-navbar{
-  background-color: var(--bs-my-dark);
+body{
+  background-color: #ecf0f1;
 }
-
-.custom-navbar .nav-link,
-.custom-navbar .navbar-brand{
-  color: var(--bs-my-light);
-}
-
 main {
   min-height: 80vh;
 }
@@ -16,7 +10,7 @@ main {
 }
 
 .rating svg {
-  color: var(--bs-my-yellow);
+  color: #facf5a;
 }
 
 .rating-text {
@@ -43,9 +37,9 @@ table th {
 
 .review h2 {
   font-size: 24px;
-  background: var(--bs-my-light);
+  background: #f4f4f4;
   padding: 10px;
-  border: 1px solid var(--bs-my-light);
+  border: 1px solid #ddd;
 }
 
 .review button {
@@ -58,5 +52,5 @@ table th {
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--bs-my-dark);
+  background: rgba(0, 0, 0, 0.5);
 }
