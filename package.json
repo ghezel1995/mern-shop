@@ -1,0 +1,22 @@
+{
+  "name": "mern-shop",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --watch backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client":"npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Mahsa Ghezel",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "nodemon": "^3.1.7"
+  }
+}
