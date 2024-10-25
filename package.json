@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node --watch backend/server.js",
     "server": "nodemon backend/server.js",
-    "client":"npm start --prefix frontend",
+    "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Mahsa Ghezel",
@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "concurrently": "^9.0.1",
+    "dotenv": "^16.4.5",
     "nodemon": "^3.1.7"
   }
 }

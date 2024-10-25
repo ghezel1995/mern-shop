@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# MERN Shop E-Commerce App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a FullStack E-Commerce App built with MERN-Stack.
 
-## Available Scripts
+## MONGODB setup
 
-In the project directory, you can run:
+First you should go to [mongodb.com](https://mongodb.com) and sign in. It is completely free:
 
-### `npm start`
+Then you should create an organization, after that, you should create a project so, click new project button, In the page will open, name your project and if you have other members add them and click on the create project.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Then click on build a database. Choose the free option and AWS is going to be the provider and then you can click create. On the opend page, create username and password and click on create user.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+If you'd want to add your IP Address, you can set it up and click on finish and close button.
 
-### `npm test`
+### connection
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To get our connection screen click on the connect button and on the Drivers and copy the connection string and paste it in the `.env` file.
 
-### `npm run build`
+`
+    NODE_ENV=development
+    PORT = 8000
+    MONGO_URI=ADD_YOUR_MONGO_URI
+`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I created the `example.env` file and you can rename the file to `.env` and put your URI into it.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+For setting up the database nname and password in the URI you should change the `<password>` with your password and between the `/` and `?` you should write your database name for example `/mern-shop?` otherwise it's going to use the database called test.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Then Click on the Browse Collection and click on Add My Own Data. Set the Database name and collection and click on create.
 
-### `npm run eject`
+## Compass MongoDB
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+You can download and install the [Compass](https://www.mongodb.com/products/tools/compass) form [This Link](https://www.mongodb.com/products/tools/compass).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+After installation click on the new connection. Go to your Cluster in the [MongoDB](https://cloud.mongodb.com) site and click on cluster and connect. From the list choose the Compass and copy the connection straing then open MongoDB Compass and paste this connection string in the URI section.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+hange the `<password>` with your real password and at the end, after the `/` write your database name, then click on save & connect.
