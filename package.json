@@ -13,6 +13,7 @@
   "author": "Mahsa Ghezel",
   "license": "MIT",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.21.1",
     "mongoose": "^8.7.2"
   },
