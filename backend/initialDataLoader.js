@@ -11,6 +11,7 @@ import connectDB from './config/db.js';
 dotenv.config();
 connectDB();
 
+//import data into the server
 const importData = async () => {
   try {
     await Order.deleteMany();
@@ -34,6 +35,7 @@ const importData = async () => {
   }
 };
 
+//Remove data from the server
 const destroyData = async () => {
   try {
     await Order.deleteMany();
