@@ -1,3 +1,4 @@
+//Router level middleware for /api/products routes
 import express from 'express';
 const router = express.Router();
 import asyncHandler from '../middleware/asyncHandler.js';
@@ -17,8 +18,10 @@ router.get(
     const product = await Product.findById(req.params.id);
     if (product) {
       return res.json(product);
+    } else {
+      res.status(404);
+      throw new Error('Product not found');
     }
-    res.status(404).json({ message: 'Product not found' });
   })
 );
 
