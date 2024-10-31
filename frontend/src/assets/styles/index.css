@@ -54,3 +54,15 @@ table th {
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
 }
+
+.trashButton{
+  color: #ff5959;
+  background-color: #ecf0f1;
+  border: none;
+  transition: all 200ms ease-in-out;
+}
+.trashButton:hover{
+  background-color: transparent;
+  color: #ff5959;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}

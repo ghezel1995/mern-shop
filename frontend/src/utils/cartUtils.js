@@ -5,7 +5,7 @@ export const addDecials = (num) => {
 export const updateCart = (state) => {
   //items price
   state.itemsPrice = addDecials(
-    state.cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
+    state.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
   );
 
   //shipping price (if order is over $80 is free, else $5 shipping)
