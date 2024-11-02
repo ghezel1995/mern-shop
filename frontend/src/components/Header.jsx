@@ -25,7 +25,7 @@ const Header = () => {
                   )}
                 </Nav.Link>
               </LinkContainer>
-              <LinkContainer to='/signin'>
+              <LinkContainer to='/login'>
                 <Nav.Link>
                   <FaUser /> Sign In
                 </Nav.Link>
