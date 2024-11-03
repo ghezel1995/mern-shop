@@ -57,11 +57,11 @@ const getOrderById = asyncHandler(async (req, res) => {
     'name email'
   );
 
-  if(order) {
+  if (order) {
     res.status(200).json(order);
   } else {
     res.status(404);
-    throw new Error('Order not found')
+    throw new Error('Order not found');
   }
 });
 
