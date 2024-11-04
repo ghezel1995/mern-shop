@@ -1,13 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import {
-  Button,
-  Row,
-  Col,
-  ListGroup,
-  Form,
-  Image,
-  Card,
-} from 'react-bootstrap';
+import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { useGetOrderDetailsQuery } from '../slices/ordersApiSlice';
@@ -21,6 +13,29 @@ const OrderScreen = () => {
     isLoading,
     error,
   } = useGetOrderDetailsQuery(orderId);
+
+  // Mock Payment Handler
+  const handleMockPayment = async () => {
+    try {
+      const response = await fetch(`/api/orders/${orderId}/mockpay`, {
+        method: 'PUT',
+        credentials: 'include', // Important for sending cookies
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Payment failed'); // Handle unsuccessful payment
+      }
+
+      const data = await response.json();
+      console.log('Mock payment response:', data); // Log the response
+      refetch(); // Refresh order details to get updated payment status
+    } catch (error) {
+      console.error('Payment failed', error.message); // Handle error properly
+    }
+  };
 
   return (
     <>
@@ -118,6 +133,17 @@ const OrderScreen = () => {
                       <Col>${order.totalPrice}</Col>
                     </Row>
                   </ListGroup.Item>
+                  {!order.isPaid && (
+                    <ListGroup.Item>
+                      <Button
+                        type='button'
+                        className='btn-block'
+                        onClick={handleMockPayment}
+                      >
+                        Pay Now
+                      </Button>
+                    </ListGroup.Item>
+                  )}
                 </ListGroup>
               </Card>
             </Col>
