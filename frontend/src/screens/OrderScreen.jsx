@@ -80,7 +80,7 @@ const OrderScreen = () => {
                   {order.isPaid ? (
                     <Message variant='success'>Paid on {order.paidAt}</Message>
                   ) : (
-                    <Message variant='warning'>Not Paid</Message>
+                    <Message variant='danger'>Not Paid</Message>
                   )}
                 </ListGroup.Item>
 
