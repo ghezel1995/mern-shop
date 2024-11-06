@@ -2,7 +2,12 @@ import { Link, useParams } from 'react-router-dom';
 import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
-import { useGetOrderDetailsQuery } from '../slices/ordersApiSlice';
+import {
+  useGetOrderDetailsQuery,
+  useDeliverOrderMutation,
+} from '../slices/ordersApiSlice';
+import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 const OrderScreen = () => {
   const { id: orderId } = useParams();
@@ -13,6 +18,11 @@ const OrderScreen = () => {
     isLoading,
     error,
   } = useGetOrderDetailsQuery(orderId);
+
+    const [deliverOrder, { isLoading: loadingDeliver }] =
+      useDeliverOrderMutation();
+
+  const { userInfo } = useSelector((state) => state.auth);
 
   // Mock Payment Handler
   const handleMockPayment = async () => {
@@ -35,6 +45,11 @@ const OrderScreen = () => {
     } catch (error) {
       console.error('Payment failed', error.message); // Handle error properly
     }
+  };
+
+  const deliverOrderHandler = async () => {
+      await deliverOrder(orderId);
+      refetch();
   };
 
   return (
@@ -144,6 +159,22 @@ const OrderScreen = () => {
                       </Button>
                     </ListGroup.Item>
                   )}
+
+                  {loadingDeliver && <Loader />}
+                  {userInfo &&
+                    userInfo.isAdmin &&
+                    order.isPaid &&
+                    !order.isDelivered && (
+                      <ListGroup.Item>
+                        <Button
+                          type='button'
+                          className='btn btn-block'
+                          onClick={deliverOrderHandler}
+                        >
+                          Mark as Delivered
+                        </Button>
+                      </ListGroup.Item>
+                    )}
                 </ListGroup>
               </Card>
             </Col>
