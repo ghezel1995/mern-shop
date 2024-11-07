@@ -15,7 +15,6 @@
   "author": "Mahsa Ghezel",
   "license": "MIT",
   "dependencies": {
-    "@stripe/stripe-js": "^4.9.0",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "cookie-parser": "^1.4.7",
