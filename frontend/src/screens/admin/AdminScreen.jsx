@@ -1,32 +1,13 @@
 import { useSelector } from 'react-redux';
-import {
-  Container,
-  Row,
-  Col,
-  ListGroup,
-  Card,
-} from 'react-bootstrap';
+import { Container, Row, Col, ListGroup, Card, Image } from 'react-bootstrap';
 import { BsCart3 } from 'react-icons/bs';
 import { IoHomeOutline } from 'react-icons/io5';
 import { HiOutlineUsers } from 'react-icons/hi2';
 import { AiOutlineProduct } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import Cards from '../../components/Cards';
-
-const cards = [
-  {
-    name: 'Products',
-    color: '#4f9da6',
-  },
-  {
-    name: 'Users',
-    color: '#facf5a',
-  },
-  {
-    name: 'Orders',
-    color: '#ff5959',
-  },
-];
+import CreateProduct from '../../components/CreateProduct';
+import chartSample from '../../assets/data-chart.png'
 
 const AdminScreen = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -61,6 +42,12 @@ const AdminScreen = () => {
         </Col>
         <Col md={9}>
           <Cards />
+          <Row className='mt-3'>
+            <Col md={9}>
+              <Image src={chartSample} fluid rounded />
+            </Col>
+            <Col md={3}>users</Col>
+          </Row>
         </Col>
       </Row>
     </Container>
