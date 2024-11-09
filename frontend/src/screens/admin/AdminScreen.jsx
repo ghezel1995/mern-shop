@@ -6,11 +6,9 @@ import { HiOutlineUsers } from 'react-icons/hi2';
 import { AiOutlineProduct } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import Cards from '../../components/Cards';
-import CreateProduct from '../../components/CreateProduct';
 import chartSample from '../../assets/data-chart.png'
 
 const AdminScreen = () => {
-  const { cartItems } = useSelector((state) => state.cart);
 
   return (
     <Container>
