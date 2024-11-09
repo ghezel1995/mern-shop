@@ -1,6 +1,7 @@
 import { LinkContainer } from 'react-router-bootstrap';
 import { Table, Button, Row, Col } from 'react-bootstrap';
-import { FaTimes, FaEdit, FaTrash } from 'react-icons/fa';
+import { FaEdit, FaTrash } from 'react-icons/fa';
+import { MdArrowBack } from 'react-icons/md';
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
 import { useGetProductsQuery } from '../../slices/productsApiSlice';
@@ -68,6 +69,11 @@ const ProductListScreen = () => {
           </Table>
         </>
       )}
+      <LinkContainer to='/admin/dashboard'>
+        <Button>
+          <MdArrowBack /> Back
+        </Button>
+      </LinkContainer>
     </>
   );
 };

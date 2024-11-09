@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { Navbar, Nav, Container, Badge, NavDropdown } from 'react-bootstrap';
-import { FaShoppingCart, FaUser } from 'react-icons/fa';
+import { Navbar, Nav, Container, Badge, NavDropdown, Button, NavLink } from 'react-bootstrap';
+import { FaShoppingCart, FaUser, FaRegUser } from 'react-icons/fa';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLogoutMutation } from '../slices/usersApiSlice';
@@ -62,17 +62,9 @@ const Header = () => {
                 </LinkContainer>
               )}
               {userInfo && userInfo.isAdmin && (
-                <NavDropdown title='Admin' id='adminmenu'>
-                  <LinkContainer to='/admin/productlist'>
-                    <NavDropdown.Item>Products</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to='/admin/userlist'>
-                    <NavDropdown.Item>Users</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to='/admin/orderlist'>
-                    <NavDropdown.Item>Orders</NavDropdown.Item>
-                  </LinkContainer>
-                </NavDropdown>
+                <Nav>
+                  <Nav.Link href='/admin/dashboard' className='ms-4'><FaRegUser /> Admin Dashboard</Nav.Link>
+                </Nav>
               )}
             </Nav>
           </Navbar.Collapse>
