@@ -31,12 +31,12 @@ const UsersPreview = () => {
                   <strong>{user.name}</strong>
                   <div>
                     {user.isAdmin ? (
-                      <small className='bg-success text-light px-1 m-2 rounded'>
-                        Is Admin
+                      <small className='bg-success text-light px-1 rounded'>
+                        Admin
                       </small>
                     ) : (
-                      <small className='bg-warning text-light px-1 m-2 rounded'>
-                        Is not Admin
+                      <small className='bg-warning text-light px-1 rounded'>
+                        User
                       </small>
                     )}
                   </div>
