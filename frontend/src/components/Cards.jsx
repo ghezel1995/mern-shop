@@ -1,6 +1,12 @@
 import { Row, Card, Col } from 'react-bootstrap';
+import { useGetUsersQuery } from '../slices/usersApiSlice';
+import { useGetOrdersQuery } from '../slices/ordersApiSlice';
+import { useGetProductsQuery } from '../slices/productsApiSlice';
 
 const Cards = () => {
+  const { data: users } = useGetUsersQuery();
+  const { data: products } = useGetProductsQuery();
+  const { data: orders } = useGetOrdersQuery();
   return (
     <Row>
       <Col>
@@ -19,7 +25,7 @@ const Cards = () => {
               backgroundImage: 'linear-gradient(300deg, #4f9da6, #a7f1e3)',
             }}
           >
-            Products
+            Products ({products ? products.length : 0})
           </Card.Body>
         </Card>
       </Col>
@@ -39,7 +45,7 @@ const Cards = () => {
               backgroundImage: 'linear-gradient(300deg, #facf5a, #4f9da6)',
             }}
           >
-            Users
+            Users ({users ? users.length : 0})
           </Card.Body>
         </Card>
       </Col>
@@ -59,7 +65,7 @@ const Cards = () => {
               backgroundImage: 'linear-gradient(300deg, #ff5959, #facf5a)',
             }}
           >
-            Orders
+            Orders ({orders ? orders.length : 0})
           </Card.Body>
         </Card>
       </Col>

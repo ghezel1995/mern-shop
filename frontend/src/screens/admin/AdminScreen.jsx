@@ -1,12 +1,12 @@
-import { useSelector } from 'react-redux';
-import { Container, Row, Col, ListGroup, Card, Image } from 'react-bootstrap';
+import { Container, Row, Col, ListGroup, Image } from 'react-bootstrap';
 import { BsCart3 } from 'react-icons/bs';
 import { IoHomeOutline } from 'react-icons/io5';
 import { HiOutlineUsers } from 'react-icons/hi2';
 import { AiOutlineProduct } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import Cards from '../../components/Cards';
-import chartSample from '../../assets/data-chart.png'
+import chartSample from '../../assets/data-chart.png';
+import UsersPreview from '../../components/UsersPreview';
 
 const AdminScreen = () => {
 
@@ -44,7 +44,7 @@ const AdminScreen = () => {
             <Col md={9}>
               <Image src={chartSample} fluid rounded />
             </Col>
-            <Col md={3}>users</Col>
+            <Col md={3}><UsersPreview /></Col>
           </Row>
         </Col>
       </Row>
