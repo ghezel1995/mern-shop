@@ -16,7 +16,7 @@ const Cards = () => {
       <Col>
         <Card
           style={{
-            color: '#ecf0f1',
+            color: '#233142',
             textAlign: 'center',
             fontSize: '1.5rem',
             border: 'none',
@@ -37,7 +37,7 @@ const Cards = () => {
       <Col>
         <Card
           style={{
-            color: '#ecf0f1',
+            color: '#233142',
             textAlign: 'center',
             fontSize: '1.5rem',
             border: 'none',
@@ -58,7 +58,7 @@ const Cards = () => {
       <Col>
         <Card
           style={{
-            color: '#ecf0f1',
+            color: '#233142',
             textAlign: 'center',
             fontSize: '1.5rem',
             border: 'none',
@@ -79,7 +79,7 @@ const Cards = () => {
       <Col>
         <Card
           style={{
-            color: '#ecf0f1',
+            color: '#233142',
             textAlign: 'center',
             fontSize: '1.5rem',
             border: 'none',
@@ -93,7 +93,7 @@ const Cards = () => {
                 'linear-gradient(90deg, #3498db,  #52a7e0, #a8d3f0)',
             }}
           >
-            Total sales <small>({totalSale.toFixed(0)})</small>
+            Total sales: <small>${totalSale.toFixed(0)}</small>
           </Card.Body>
         </Card>
       </Col>
