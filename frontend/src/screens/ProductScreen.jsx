@@ -12,14 +12,15 @@ import {
   useCreateReviewMutation,
 } from '../slices/productsApiSlice';
 import { addToCart } from '../slices/cartSlice.js';
+import Meta from '../components/Meta';
 
 const ProductScreen = () => {
   const { id: productId } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [qty, setQty] = useState(1);
-    const [rating, setRating] = useState(0);
-    const [comment, setComment] = useState('');
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState('');
 
   const {
     data: product,
@@ -28,30 +29,30 @@ const ProductScreen = () => {
     isLoading,
   } = useGetProductDetailQuery(productId);
 
-    const { userInfo } = useSelector((state) => state.auth);
+  const { userInfo } = useSelector((state) => state.auth);
 
-    const [createReview, { isLoading: loadingProductReview }] =
-      useCreateReviewMutation();
+  const [createReview, { isLoading: loadingProductReview }] =
+    useCreateReviewMutation();
 
   const addToCartHandler = () => {
     dispatch(addToCart({ ...product, qty }));
     navigate('/cart');
   };
 
-    const submitHandler = async (e) => {
-      e.preventDefault();
-      try {
-        await createReview({
-          productId,
-          rating,
-          comment,
-        }).unwrap();
-        refetch();
-        toast.success('Review created successfully');
-      } catch (err) {
-        toast.error(err?.data?.message || err.error);
-      }
-    };
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      await createReview({
+        productId,
+        rating,
+        comment,
+      }).unwrap();
+      refetch();
+      toast.success('Review created successfully');
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
+  };
 
   return (
     <>
@@ -66,6 +67,11 @@ const ProductScreen = () => {
         </Message>
       ) : (
         <>
+          <Meta
+            title={product.name}
+            description={product.description}
+            keywords={product.name}
+          />
           <Row>
             <Col md={5}>
               <Image src={product.image} alt={product.name} fluid />

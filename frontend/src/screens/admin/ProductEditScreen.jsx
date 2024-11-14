@@ -70,13 +70,13 @@ const ProductEditScreen = () => {
   const uploadFileHandler = async (e) => {
     const formData = new FormData();
     formData.append('image', e.target.files[0]);
-        try {
-          const res = await uploadProductImage(formData).unwrap();
-          toast.success(res.message);
-          setImage(res.image);
-        } catch (err) {
-          toast.error(err?.data?.message || err.error);
-        }
+    try {
+      const res = await uploadProductImage(formData).unwrap();
+      toast.success(res.message);
+      setImage(res.image);
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
   };
 
   return (
@@ -87,7 +87,6 @@ const ProductEditScreen = () => {
       <FormContainer>
         <h1>Edit Product</h1>
         {loadingUpdate && <Loader />}
-        {loadingUpload && <Loader />}
         {isLoading ? (
           <Loader />
         ) : error ? (
@@ -127,6 +126,7 @@ const ProductEditScreen = () => {
                 onChange={uploadFileHandler}
               ></Form.Control>
             </Form.Group>
+            {loadingUpload && <Loader />}
 
             <Form.Group controlId='brand'>
               <Form.Label>Brand</Form.Label>

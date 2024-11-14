@@ -7,7 +7,6 @@ import {
   useDeliverOrderMutation,
 } from '../slices/ordersApiSlice';
 import { useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
 
 const OrderScreen = () => {
   const { id: orderId } = useParams();
@@ -19,8 +18,8 @@ const OrderScreen = () => {
     error,
   } = useGetOrderDetailsQuery(orderId);
 
-    const [deliverOrder, { isLoading: loadingDeliver }] =
-      useDeliverOrderMutation();
+  const [deliverOrder, { isLoading: loadingDeliver }] =
+    useDeliverOrderMutation();
 
   const { userInfo } = useSelector((state) => state.auth);
 
@@ -48,8 +47,8 @@ const OrderScreen = () => {
   };
 
   const deliverOrderHandler = async () => {
-      await deliverOrder(orderId);
-      refetch();
+    await deliverOrder(orderId);
+    refetch();
   };
 
   return (
