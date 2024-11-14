@@ -4,6 +4,7 @@ import Product from '../components/Product';
 import Loader from '../components/Loader.jsx';
 import Message from '../components/Message.jsx';
 import { useGetProductsQuery } from '../slices/productsApiSlice.js';
+import Paginate from '../components/Paginate.jsx';
 
 const HomeScreen = () => {
   const { pageNumber } = useParams();
@@ -26,6 +27,7 @@ const HomeScreen = () => {
           </Col>
         ))}
       </Row>
+      <Paginate pages={data.pages} page={data.page} />
     </>
   );
 };
