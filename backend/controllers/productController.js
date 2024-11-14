@@ -5,8 +5,14 @@ import Product from '../models/productModel.js';
 //@route GET /api/products
 //@access Public
 const getProducts = asyncHandler(async (req, res) => {
-  const products = await Product.find({});
-  res.json(products);
+  const pageSize = 4;
+  const page = Number(req.query.pageNumber) || 1;
+  const count = await Product.countDocuments();
+
+  const products = await Product.find({})
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+  res.json({products, page, pages: Math.ceil(count / pageSize)});
 });
 
 //@desc Fetch a product by its id
@@ -87,32 +93,28 @@ const createProductReview = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
   if (product) {
     const alreadyReviewed = product.reviews.find(
-      (review) => review.user.toString() === req.user._id.toString()
+      (r) => r.user.toString() === req.user._id.toString()
     );
     if (alreadyReviewed) {
       res.status(400);
       throw new Error('Product already reviewed');
     }
-
     const review = {
       name: req.user.name,
       rating: Number(rating),
       comment,
-      user: user.req.user._id,
+      user: req.user._id,
     };
-
     product.reviews.push(review);
     product.numReviews = product.reviews.length;
-
     product.rating =
-      product.reviews.reduce((acc, review) => acc + review.rating, 0) /
+      product.reviews.reduce((acc, item) => item.rating + acc, 0) /
       product.reviews.length;
-
     await product.save();
-    res.status(201).json({message: 'Review added'})
+    res.status(201).json({ message: 'Review added' });
   } else {
     res.status(404);
-    throw new Error('Resource not found');
+    throw new Error('Product not found');
   }
 });
 
