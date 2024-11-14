@@ -1,5 +1,5 @@
 import { Row, Col } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Product from '../components/Product';
 import Loader from '../components/Loader.jsx';
 import Message from '../components/Message.jsx';
@@ -22,6 +22,7 @@ const HomeScreen = () => {
 
   return (
     <>
+      {keyword && <Link to='/' className='btn btn-outline-primary mb-3'>Go Back</Link>}
       <h1>Latest Products</h1>
       <Row>
         {data.products.map((product) => (

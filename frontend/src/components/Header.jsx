@@ -1,10 +1,11 @@
 import { useNavigate } from 'react-router-dom';
-import { Navbar, Nav, Container, Badge, NavDropdown, Button, NavLink } from 'react-bootstrap';
+import { Navbar, Nav, Container, Badge, NavDropdown } from 'react-bootstrap';
 import { FaShoppingCart, FaUser, FaRegUser } from 'react-icons/fa';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLogoutMutation } from '../slices/usersApiSlice';
 import { logout } from '../slices/authSlice';
+import SearchBox from './SearchBox';
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -35,6 +36,7 @@ const Header = () => {
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ms-auto'>
+              <SearchBox />
               <LinkContainer to='/cart'>
                 <Nav.Link>
                   <FaShoppingCart /> Cart
@@ -63,7 +65,9 @@ const Header = () => {
               )}
               {userInfo && userInfo.isAdmin && (
                 <Nav>
-                  <Nav.Link href='/admin/dashboard' className='ms-4'><FaRegUser /> Admin Dashboard</Nav.Link>
+                  <Nav.Link href='/admin/dashboard' className='ms-4'>
+                    <FaRegUser /> Admin Dashboard
+                  </Nav.Link>
                 </Nav>
               )}
             </Nav>
