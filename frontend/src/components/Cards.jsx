@@ -20,7 +20,6 @@ const Cards = () => {
             textAlign: 'center',
             fontSize: '1.5rem',
             border: 'none',
-            borderRadius: '8px',
             overflow: 'hidden',
           }}
         >
@@ -41,7 +40,6 @@ const Cards = () => {
             textAlign: 'center',
             fontSize: '1.5rem',
             border: 'none',
-            borderRadius: '8px',
             overflow: 'hidden',
           }}
         >
@@ -62,7 +60,6 @@ const Cards = () => {
             textAlign: 'center',
             fontSize: '1.5rem',
             border: 'none',
-            borderRadius: '8px',
             overflow: 'hidden',
           }}
         >
@@ -83,7 +80,6 @@ const Cards = () => {
             textAlign: 'center',
             fontSize: '1.5rem',
             border: 'none',
-            borderRadius: '8px',
             overflow: 'hidden',
           }}
         >

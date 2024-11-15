@@ -42,7 +42,7 @@ const AdminScreen = () => {
           <Cards />
           <Row className='mt-3'>
             <Col md={9}>
-              <Image src={chartSample} fluid rounded />
+              <Image src={chartSample} fluid />
             </Col>
             <Col md={3}><UsersPreview /></Col>
           </Row>
