@@ -10,7 +10,8 @@
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node backend/initialDataLoader.js",
-    "data:destroy": "node backend/initialDataLoader.js -d"
+    "data:destroy": "node backend/initialDataLoader.js -d",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "Mahsa Ghezel",
   "license": "MIT",
