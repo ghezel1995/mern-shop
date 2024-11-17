@@ -1,16 +1,20 @@
 import { Row, Card, Col } from 'react-bootstrap';
 import { useGetUsersQuery } from '../slices/usersApiSlice';
 import { useGetOrdersQuery } from '../slices/ordersApiSlice';
-import { useGetProductsQuery } from '../slices/productsApiSlice';
+import { useGetAllProductsQuery } from '../slices/productsApiSlice';
 
 const Cards = () => {
   const { data: users } = useGetUsersQuery();
-  const { data: products } = useGetProductsQuery();
+  const { data: productsData } =
+    useGetAllProductsQuery();
   const { data: orders } = useGetOrdersQuery();
+
+  const productLength = productsData ? productsData.length : 0;
 
   const totalSale = orders
     ? orders.reduce((sum, order) => sum + order.totalPrice, 0)
     : 0;
+
   return (
     <Row>
       <Col>
@@ -29,7 +33,7 @@ const Cards = () => {
                 'linear-gradient(90deg, #4f9da6,#74b6be, #a7f1e3)',
             }}
           >
-            Products ({products ? products.length : 0})
+            Products ({ productLength})
           </Card.Body>
         </Card>
       </Col>

@@ -17,7 +17,19 @@ const getProducts = asyncHandler(async (req, res) => {
   const products = await Product.find({ ...keyword })
     .limit(pageSize)
     .skip(pageSize * (page - 1));
-  res.json({ products, page, pages: Math.ceil(count / pageSize) });
+  res.json({
+    products,
+    page,
+    pages: Math.ceil(count / pageSize),
+  });
+});
+
+//@desc Fetch all products (no pagination or filtering)
+//@route GET /api/products/all
+//@access Public
+const getAllProducts = asyncHandler(async (req, res) => {
+  const totalProducts = await Product.find({});
+  res.json(totalProducts);
 });
 
 //@desc Fetch a product by its id
@@ -133,6 +145,7 @@ const getTopProducts = asyncHandler(async (req, res) => {
 
 export {
   getProducts,
+  getAllProducts,
   getProductById,
   createProduct,
   updateProduct,
