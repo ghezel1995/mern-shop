@@ -18,16 +18,16 @@ You can check out the live version of the app here: [Live Demo on Render](https:
 
 1. [Project Overview](#project-overview)
 2. [Features](#features)
-    - [General Features](#general-features)
-    - [Customer Features](#customer-features)
-    - [Admin Features](#admin-features)
-    - [Security](#security)
+   - [General Features](#general-features)
+   - [Customer Features](#customer-features)
+   - [Admin Features](#admin-features)
+   - [Security](#security)
 3. [Tech Stack](#tech-stack)
-    - [Forntend](#frontend)
-    - [Backend](#backend)
+   - [Forntend](#frontend)
+   - [Backend](#backend)
 4. [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Setting up MongoDB](#setting-up-mongodb)
+   - [Prerequisites](#prerequisites)
+   - [Setting up MongoDB](#setting-up-mongodb)
 5. [Installation and Setup](#installation-and-setup)
 6. [Running the Application](#running-the-application)
 7. [Scripts](#scripts)
@@ -202,15 +202,16 @@ npm run dev
 
 ## File Structure
 
+```plaintext
 MERN-SHOP/
 ├── backend/
-│   ├── config/               # Configuration files (e.g., database connection, environment variables).
+│   ├── config/               # Database connection with Mongoose
 │   ├── controllers/          # Controller functions for handling request logic.
 │   ├── data/                 # Sample data files for initial database population.
-│   ├── middleware/           # Custom middleware (e.g., authentication, error handling).
-│   ├── models/               # Mongoose models for MongoDB collections.
+│   ├── middleware/           # Custom middleware (e.g., authentication, error handling, asyncHandler).
+│   ├── models/               # Mongoose models(Schemas) for MongoDB collections.
 │   ├── routes/               # Express routes for API endpoints.
-│   ├── utils/                # Utility functions used by the backend.
+│   ├── utils/                # Generating Token(JWT)
 │   ├── initialDataLoader.js  # Script to import and destroy sample data.
 │   └── server.js             # Main server file to start the backend.
 │
@@ -218,14 +219,14 @@ MERN-SHOP/
 │   ├── node_modules/         # Contains frontend dependencies.
 │   ├── public/               # Static files and the `index.html` template.
 │   ├── src/
-│   │   ├── assets/           # Static assets such as images and icons.
+│   │   ├── assets/           # Static assets such as images and styles.
 │   │   ├── components/       # Reusable React components (e.g., Navbar, Footer).
 │   │   ├── screens/          # React components representing pages/screens.
 │   │   ├── slices/           # Redux slices for global state management.
-│   │   ├── utils/            # Utility functions for frontend functionality.
+│   │   ├── utils/            # Utility function for cart.
 │   │   ├── App.js            # Main app component for route management and provider setup.
-│   │   ├── constants.js      # Application-wide constants (e.g., API URLs).
-│   │   ├── index.js          # Entry point of the React app.
+│   │   ├── constants.js      # Application-wide constants (API URLs).
+│   │   ├── index.js          # Entry point of the React app and Routers.
 │   │   ├── Products.js       # Component handling product-related logic.
 │   │   ├── setupTests.js     # Jest setup for testing.
 │   │   └── store.js          # Redux store configuration.
@@ -233,7 +234,6 @@ MERN-SHOP/
 ├── uploads/                  # Directory for uploaded images (handled by Multer).
 ├── .env                      # Environment variables for backend configuration.
 ├── .gitignore                # Git ignore file.
-├── example.env               # Example environment configuration file.
 ├── package-lock.json         # Lock file for package dependencies.
 ├── package.json              # Project metadata and scripts.
 └── README.md                 # Project documentation.
@@ -249,3 +249,4 @@ MERN-SHOP/
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+```
