@@ -1,0 +1,25 @@
+# Node modules
+node_modules
+frontend/node_modules
+
+# Log files
+*.log
+
+# OS/IDE-specific files
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Git-related files
+.git
+.gitignore
+
+# Docker-specific files
+.dockerignore
+Dockerfile*
+
+# Miscellaneous
+*.tmp
+*.cache
