@@ -1,6 +1,6 @@
 # 🏪 MERN Shop E-Commerce App
 
-This project is a Full-Stack E-Commerce Application built using the MERN stack (MongoDB, Express.js, React.js, Node.js). It simulates a real-world webshop with essential features like user authentication, product management, shopping cart functionality, order management, and an admin dashboard.
+This project is a Full-Stack E-Commerce Application built using the MERN stack (MongoDB, Express.js, React.js, Node.js). It simulates a real-world webshop with essential features like user authentication, product management, shopping cart functionality, order management, and an admin dashboard. (This project is containerized using Docker.)
 
 ---
 
@@ -8,7 +8,7 @@ This project is a Full-Stack E-Commerce Application built using the MERN stack (
 
 ![App Preview](/frontend/src/assets/mern-overview.png)
 
-### LIVE DEMO
+### 🔗 LIVE DEMO
 
 You can check out the live version of the app here: [Live Demo on Render](https://mern-shop-ooqh.onrender.com/)
 
@@ -23,17 +23,23 @@ You can check out the live version of the app here: [Live Demo on Render](https:
    - [Admin Features](#admin-features)
    - [Security](#security)
 3. [Tech Stack](#tech-stack)
-   - [Forntend](#frontend)
+   - [Frontend](#frontend)
    - [Backend](#backend)
 4. [Getting Started](#getting-started)
    - [Prerequisites](#prerequisites)
    - [Setting up MongoDB](#setting-up-mongodb)
 5. [Installation and Setup](#installation-and-setup)
-6. [Running the Application](#running-the-application)
-7. [Scripts](#scripts)
-8. [File Structure](#file-structure)
-9. [Additional Notes](#additional-notes)
-10. [License](#license)
+   - [Setting up JWT Secret](#setting-up-jwt-secret)
+6. [Dockerizing the Application](#dockerizing-the-application)
+   - [Docker Prerequisites](#docker-prerequisites)
+   - [Docker Commands](#docker-commands)
+7. [Running the Application](#running-the-application)
+   - [Without Docker](#without-docker)
+   - [With Docker](#with-docker)
+8. [Scripts](#scripts)
+9. [File Structure](#file-structure)
+10. [Additional Notes](#additional-notes)
+11. [License](#license)
 
 ---
 
@@ -172,7 +178,77 @@ The JWT secret is simply a random string that you define in your .env file to si
 
 `aaa111`
 
+---
+
+## Dockerizing the Application
+
+The project is fully Dockerized to simplify setup and deployment. Using Docker ensures consistent environments for development and production.
+
+### Docker Prerequisites
+
+1. **Install Docker**:
+
+   - [Download Docker](https://www.docker.com/products/docker-desktop) for your operating system.
+
+2. **Verify Installation**:
+   Run the following command to ensure Docker is installed:
+
+```bash
+docker --version
+```
+
+### Docker Commands
+
+1. Build the Docker Image: Navigate to the project directory and run:
+
+   ```bash
+   docker build -t mern-shop .
+   ```
+
+   This command:
+
+   - Installs all dependencies for the backend and frontend.
+   - Builds the production-ready React app.
+   - Prepares the app for deployment.
+
+2. Run the Docker Container: Start a container from the built image:
+
+   ```bash
+   docker run -p 8000:8000 -p 3000:3000 --name mern-shop-container mern-shop
+   ```
+
+   - The backend will be available at `http://localhost:8000`.
+   - The frontend will be available at `http://localhost:3000`.
+
+3. Stop the Docker Container: To stop the running container, use:
+
+   ```bash
+   docker stop mern-shop-container
+   ```
+
+4. Remove the Docker Container: To clean up the container:
+
+   ```bash
+   docker rm mern-shop-container
+   ```
+
+5. Run MongoDB in Docker (Optional): If you don’t have a MongoDB instance, you can use a MongoDB Docker container:
+
+   ```bash
+   docker run -d -p 27017:27017 --name mongodb mongo
+   ```
+
+   Update your .env file with:
+
+   ```bash
+   MONGO_URI=mongodb://localhost:27017/mern-shop
+   ```
+
+---
+
 ### Running the Application
+
+#### Without Docker
 
 Run the backend and frontend concurrently:
 
@@ -180,8 +256,24 @@ Run the backend and frontend concurrently:
 npm run dev
 ```
 
-- Frontend: `http://localhost:3000`
-- Backend: `http://localhost:8000`
+#### With Docker
+
+Run the app using the following commands:
+
+1. Build the image:
+
+   ```bash
+   docker build -t mern-shop .
+   ```
+
+2. Run the container:
+
+   ```bash
+   docker run -p 8000:8000 -p 3000:3000 mern-shop
+   ```
+
+The backend will be available at `http://localhost:8000`.
+The frontend will be available at `http://localhost:3000`.
 
 ---
 
@@ -237,6 +329,7 @@ MERN-SHOP/
 ├── package-lock.json         # Lock file for package dependencies.
 ├── package.json              # Project metadata and scripts.
 └── README.md                 # Project documentation.
+```
 
 ---
 
@@ -249,4 +342,5 @@ MERN-SHOP/
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
-```
+
+---
