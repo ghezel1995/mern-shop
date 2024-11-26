@@ -314,6 +314,8 @@ MERN-SHOP/
 ├── uploads/                  # Directory for uploaded images (handled by Multer).
 ├── .env                      # Environment variables for backend configuration.
 ├── .gitignore                # Git ignore file.
+├── Dockerfile                  # Instructions for building a Docker image
+├── .dockerignore               # Specifies files and directories to ignore when building Docker images
 ├── package-lock.json         # Lock file for package dependencies.
 ├── package.json              # Project metadata and scripts.
 └── README.md                 # Project documentation.
