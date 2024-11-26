@@ -232,18 +232,6 @@ docker --version
    docker rm mern-shop-container
    ```
 
-5. Run MongoDB in Docker (Optional): If you don’t have a MongoDB instance, you can use a MongoDB Docker container:
-
-   ```bash
-   docker run -d -p 27017:27017 --name mongodb mongo
-   ```
-
-   Update your .env file with:
-
-   ```bash
-   MONGO_URI=mongodb://localhost:27017/mern-shop
-   ```
-
 ---
 
 ### Running the Application
